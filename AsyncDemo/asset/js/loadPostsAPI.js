@@ -3,8 +3,15 @@ const postDiv3 = document.getElementById('thePosts');
 
 //Load Every thing ....
 document.addEventListener("DOMContentLoaded", () => {
-    //load_fromPlaceHolder();
-    loadDataNew();
+    // load_fromPlaceHolder();
+
+    setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        loadDataNew();
+    }
+
+        , 1000);
+
 });
 
 
@@ -13,13 +20,13 @@ function load_fromPlaceHolder() {
 
     //open the request 
     fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(function(res) {
+        .then(function (res) {
             return res.json(); //return the JSON Promise
         })
-        .then(function(posts) {
+        .then(function (posts) {
             //iterate over each post [100 posts]
             let output = '';
-            posts.forEach(function(post) {
+            posts.forEach(function (post) {
                 output += `
         
                 <div class="item">
@@ -45,7 +52,7 @@ function load_fromPlaceHolder() {
             });
             postDiv3.innerHTML = output;
         })
-        .catch(function(err) {
+        .catch(function (err) {
             console.log(err);
         });
 
@@ -65,11 +72,11 @@ async function load_fromPlaceHolder_new() {
 }
 
 function loadDataNew() {
-    load_fromPlaceHolder_new().then(function(posts) {
-            //iterate over each post [100 posts]
-            let output = '';
-            posts.forEach(function(post) {
-                output += `
+    load_fromPlaceHolder_new().then(function (posts) {
+        //iterate over each post [100 posts]
+        let output = '';
+        posts.forEach(function (post) {
+            output += `
 
         <div class="item">
         <div class="image">
@@ -85,16 +92,16 @@ function loadDataNew() {
                 </p>
             </div>
             <div class="extra">
-                <a class="ui floated basic violet button" href="#">Read Mores</a>
+                <a class="ui floated basic violet button" href="#">Read More</a>
             </div>
         </div>
     </div>
 
 `;
-            });
-            postDiv3.innerHTML = output;
-        })
-        .catch(function(err) {
+        });
+        postDiv3.innerHTML = output;
+    })
+        .catch(function (err) {
             console.log(err);
         });
 

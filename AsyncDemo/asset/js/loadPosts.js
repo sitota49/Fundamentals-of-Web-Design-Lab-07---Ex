@@ -44,7 +44,7 @@ function loadPosts() {
                       </p>
                   </div>
                   <div class="extra">
-                      <a class="ui floated basic violet button" href="#">Read Mores</a>
+                      <a class="ui floated basic violet button" href="#">Read More</a>
                   </div>
               </div>
           </div>
