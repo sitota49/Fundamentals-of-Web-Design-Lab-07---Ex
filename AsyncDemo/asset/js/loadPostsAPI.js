@@ -66,7 +66,6 @@ async function load_fromPlaceHolder_new() {
     let response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
     let data = await response.json();
-
     return data;
 
 }
