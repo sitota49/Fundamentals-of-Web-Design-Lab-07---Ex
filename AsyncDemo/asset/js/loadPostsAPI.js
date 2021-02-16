@@ -7,12 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
         document.getElementById('loading').style.display = 'none';
-        loadDataNew();
+        loadDataNew(0, 5);
     }
 
         , 1000);
 
+
 });
+
+
+function sort() {
+
+}
+
+
 
 
 //load a single customer function 
@@ -66,15 +74,22 @@ async function load_fromPlaceHolder_new() {
     let response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
     let data = await response.json();
+
     return data;
 
 }
 
-function loadDataNew() {
+
+function loadDataNew(begin, end) {
+
     load_fromPlaceHolder_new().then(function (posts) {
         //iterate over each post [100 posts]
+
+        let secPosts = posts.slice(begin, end);
+        console.log("sec", secPosts);
+
         let output = '';
-        posts.forEach(function (post) {
+        secPosts.forEach(function (post) {
             output += `
 
         <div class="item">
@@ -99,6 +114,9 @@ function loadDataNew() {
 `;
         });
         postDiv3.innerHTML = output;
+        document.getElementById('pagination').style.display = 'block';
+        document.getElementById("mySearch").disabled = false;
+
     })
         .catch(function (err) {
             console.log(err);

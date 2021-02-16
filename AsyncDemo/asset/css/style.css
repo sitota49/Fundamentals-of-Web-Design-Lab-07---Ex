@@ -38,10 +38,6 @@
   background-color: #ff0000;
 }
 
-.row {
-  height: 200px;
-}
-
 .carousel-item {
   height: 400px;
 }
@@ -49,4 +45,8 @@
 .carousel-inner {
   height: 200px;
   object-fit: contain;
+}
+
+#pagination {
+  display: none;
 }
