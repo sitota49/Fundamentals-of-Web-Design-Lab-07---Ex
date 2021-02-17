@@ -1,6 +1,7 @@
 // UI Vars 
 const postDiv3 = document.getElementById('thePosts');
 
+
 //Load Every thing ....
 document.addEventListener("DOMContentLoaded", () => {
     // load_fromPlaceHolder();
@@ -14,11 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
-
-
-function sort() {
-
-}
 
 
 
